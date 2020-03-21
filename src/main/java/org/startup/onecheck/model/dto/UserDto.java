@@ -3,7 +3,6 @@ package org.startup.onecheck.model.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.startup.onecheck.model.entity.Check;
 
 import java.util.List;
 
@@ -18,5 +17,5 @@ public class UserDto {
 
     private String lastName;
 
-    private List<Check> checks;
+   // private List<CheckDto> checks;
 }

@@ -39,7 +39,7 @@ public class Product {
     @JoinColumn(name = "id_company", referencedColumnName = "id")
     private Company company;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "check_to_product",
             joinColumns = @JoinColumn(name = "id_product"),
             inverseJoinColumns = @JoinColumn(name = "id_check"))

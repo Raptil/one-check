@@ -4,12 +4,7 @@ package org.startup.onecheck.model.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.startup.onecheck.model.entity.Basket;
-import org.startup.onecheck.model.entity.Check;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.OneToMany;
 import java.util.List;
 
 @Data
@@ -23,7 +18,7 @@ public class BasketDto {
 
     private String activeFlg;
 
-    private List<Check> checks;
+    private List<CheckDto> checks;
 
-    private List<Basket> baskets;
+    private UserDto user;
 }

@@ -23,6 +23,6 @@ public class Company {
     @Column(name = "company_name")
     private String companyName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
+    @OneToMany(mappedBy = "company")
     private List<Product> products;
 }

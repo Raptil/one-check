@@ -24,9 +24,9 @@ public class Check {
     private String description;
 
     @Column(name = "total_price")
-    private String totalPrice;
+    private int totalPrice;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "check_to_product",
             joinColumns = @JoinColumn(name = "id_check"),
             inverseJoinColumns = @JoinColumn(name = "id_product"))

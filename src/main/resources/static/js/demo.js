@@ -55,6 +55,24 @@ function drawProduct(product) {
     button.setAttribute('class', 'btn btn-primary');
     var text = document.createTextNode('Add');
     button.appendChild(text);
+    button.onclick = function(){
+        fetch("addProduct",
+        {
+            method:"POST",
+            body: JSON.stringify({id: product.id}),
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            }
+        })
+        .then (response => {
+            if (response.status!=200){
+                return Promise.reject();
+            }
+        })
+        .then (() => console.log('indusi'))
+        .catch(() => console.log('Error check'));
+    }
     productBut.appendChild(button);
     productElement.appendChild(productBut);
 
