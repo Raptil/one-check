@@ -3,6 +3,7 @@ package org.startup.onecheck.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.startup.onecheck.model.dto.CheckDto;
 import org.startup.onecheck.model.dto.CheckProductDto;
 import org.startup.onecheck.service.BasketService;
 
@@ -18,4 +19,7 @@ public class BasketController {
     public List<CheckProductDto> getProductsByCompany(){
         return basketService.getCurrentBasket();
     }
+
+    @GetMapping("checks/")
+    public List<CheckDto> getCheckByCompany(){return basketService.getChecks();}
 }

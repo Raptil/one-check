@@ -11,9 +11,9 @@ VALUES (1, 'Avocado', 'fresh fruits', 0.79,
 -- TODO: add more product
 COMMIT;
 
-INSERT INTO user_dictionary (user_name, first_name) values ('User', 'User');
-INSERT INTO user_dictionary (user_name, first_name) values ('KrzysztofDev', 'Krzysztof');
-INSERT INTO user_dictionary (user_name, first_name) values ('DanDan', 'Dan');
+INSERT INTO user_dictionary (user_name, first_name, address) values ('User', 'User', 'Boulevar Caputsinov 73');
+INSERT INTO user_dictionary (user_name, first_name, address) values ('KrzysztofDev', 'Krzysztof', 'Boulevar Caputsinov 21');
+INSERT INTO user_dictionary (user_name, first_name, address) values ('DanDan', 'Dan', 'Boulevar Caputsinov 181');
 COMMIT;
 
 INSERT INTO basket (id_user, active_flg, total_price) VALUES (1, 'active', 20);

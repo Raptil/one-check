@@ -4,7 +4,8 @@ CREATE SCHEMA IF NOT EXISTS public;
 CREATE TABLE IF NOT EXISTS public.user_dictionary (
   id          SERIAL PRIMARY KEY,
   user_name   VARCHAR NOT NULL,
-  first_name  VARCHAR NOT NULL
+  first_name  VARCHAR NOT NULL,
+  address VARCHAR NOT NULL
   );
 CREATE TABLE IF NOT EXISTS public.company (
   id    SERIAL PRIMARY KEY,

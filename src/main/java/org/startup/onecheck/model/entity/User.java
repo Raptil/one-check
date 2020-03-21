@@ -26,6 +26,9 @@ public class User {
     @Column(name = "user_name")
     private String userName;
 
+    @Column
+    private String address;
+
     @OneToMany(mappedBy = "user")
     private List<Check> checks;
 
