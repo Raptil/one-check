@@ -45,7 +45,7 @@ function drawProduct(product) {
     productElement.appendChild(productCategory);
 
     var productPrice = document.createElement('li');
-    var text = document.createTextNode(product.price);
+    var text = document.createTextNode(product.price + ' $');
     productPrice.appendChild(text);
     productElement.appendChild(productPrice);
 
@@ -58,7 +58,5 @@ function drawProduct(product) {
     productBut.appendChild(button);
     productElement.appendChild(productBut);
 
-
     productArea.appendChild(productElement);
-    console.log(product);
 }
