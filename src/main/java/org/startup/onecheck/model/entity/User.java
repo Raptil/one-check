@@ -28,4 +28,7 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Check> checks;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Basket> baskets;
 }
