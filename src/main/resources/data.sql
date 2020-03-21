@@ -21,7 +21,7 @@ INSERT INTO check_products (id_user, total_price, description) values (2, 20, 'c
 INSERT INTO check_products (id_user, total_price, description) values (3, 20, 'check-description');
 COMMIT;
 
-INSERT INTO check_to_product (id_check, id_product) VALUES (1, 1);
 INSERT INTO check_to_product (id_check, id_product) VALUES (2, 1);
-INSERT INTO check_to_product (id_check, id_product) VALUES (2, 2);
+INSERT INTO check_to_product (id_check, id_product) VALUES (3, 1);
+INSERT INTO check_to_product (id_check, id_product) VALUES (3, 2);
 COMMIT;
