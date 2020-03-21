@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS public.check_products (
  total_price int NOT NULL,
  description VARCHAR NOT NULL,
  CONSTRAINT "FK_id_basket" FOREIGN KEY ("id_basket")
-    REFERENCES "basket" FOREIGN KEY("id"),
+    REFERENCES "basket" ("id"),
   CONSTRAINT "FK_id_user" FOREIGN KEY ("id_user")
      REFERENCES "user_dictionary" ("id")
 );
