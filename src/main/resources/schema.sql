@@ -15,8 +15,9 @@ CREATE TABLE IF NOT EXISTS public.company (
     id_company INT NOT NULL,
     product_name VARCHAR NOT NULL,
     category VARCHAR NOT NULL,
-    price INT NOT NULL,
-    DESCRIPTION VARCHAR,
+    price REAL NOT NULL,
+    description VARCHAR,
+    img_url VARCHAR,
     CONSTRAINT "FK_id_company" FOREIGN KEY ("id_company")
         REFERENCES "company" ("id")
  );

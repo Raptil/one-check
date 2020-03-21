@@ -27,10 +27,13 @@ public class Product {
     private String category;
 
     @Column
-    private int price;
+    private double price;
 
     @Column
     private String description;
+
+    @Column
+    private String imgUrl;
 
     @ManyToOne
     @JoinColumn(name = "id_company", referencedColumnName = "id")
