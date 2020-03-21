@@ -18,9 +18,8 @@ CREATE TABLE IF NOT EXISTS public.company (
     price INT NOT NULL,
     DESCRIPTION VARCHAR,
     CONSTRAINT "FK_id_company" FOREIGN KEY ("id_company")
-        REFERENCES "company" ("id"),
- )
-
+        REFERENCES "company" ("id")
+ );
 CREATE TABLE IF NOT EXISTS public.check_products (
  id SERIAL PRIMARY KEY,
  id_basket int,
@@ -47,4 +46,4 @@ CREATE TABLE IF NOT EXISTS public.check_to_product (
   total_price INT NOT NULL,
    CONSTRAINT "FK_id_user" FOREIGN KEY ("id_user")
       REFERENCES "user_dictionary" ("id")
- )
+ );
