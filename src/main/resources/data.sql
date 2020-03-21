@@ -16,4 +16,11 @@ INSERT INTO user_dictionary (user_name, first_name) values ('KrzysztofDev', 'Krz
 INSERT INTO user_dictionary (user_name, first_name) values ('DanDan', 'Dan');
 COMMIT;
 
+INSERT INTO check_products (id_user, total_price, description) values (2, 20, 'check-description');
+INSERT INTO check_products (id_user, total_price, description) values (3, 20, 'check-description');
+COMMIT;
 
+INSERT INTO check_to_product (id_check, id_product) VALUES (1, 1);
+INSERT INTO check_to_product (id_check, id_product) VALUES (2, 1);
+INSERT INTO check_to_product (id_check, id_product) VALUES (2, 2);
+COMMIT;
