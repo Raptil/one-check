@@ -1,4 +1,4 @@
-INSERT INTO company (company_name) values ('LIDL');
+INSERT INTO company (company_name) values ('Lidl');
 COMMIT;
 INSERT INTO product_item (id_company, product_name, category, price, description, img_url)
 VALUES (1, 'Ataulfo mango', 'fresh fruits', 0.89,
