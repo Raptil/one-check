@@ -33,5 +33,5 @@ function drawProduct(product) {
     label.setAttribute("value", product.productName);
     productElement.appendChild(label);
 
-    productArea.appendChild(productElement)
+    productArea.appendChild(productElement);
 }
