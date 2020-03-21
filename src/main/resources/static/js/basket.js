@@ -17,9 +17,9 @@ window.onload = function () {
             }
             return response.json();
         })
-        .then(products => {
-            console.log(products);
-            products.forEach(function (item, product) {
+        .then(checkProductDto => {
+            console.log(checkProductDto);
+            checkProductDto.forEach(function (item, product) {
                 console.log(item);
                 drawProduct(item);
             });
@@ -27,7 +27,8 @@ window.onload = function () {
         .catch(() => console.log('Error messages'));
 };
 
-function drawProduct(product) {
+function drawProduct(checkProductDto) {
+    var product = checkProductDto.product;
     var basket  =  document.createElement('ul');
 
     var productImg = document.createElement('li');
@@ -51,14 +52,10 @@ function drawProduct(product) {
     productPrice.appendChild(text);
     basket.appendChild(productPrice);
 
-    var productBut = document.createElement('li');
-    var button = document.createElement('button');
-    button.setAttribute('type', 'button');
-    button.setAttribute('class', 'btn btn-primary');
-    var text = document.createTextNode('Add');
-    button.appendChild(text);
-    productBut.appendChild(button);
-    basket.appendChild(productBut);
+    var productCount = document.createElement('li');
+    var text = document.createTextNode('count ' + checkProductDto.count);
+    productCount.appendChild(text);
+    basket.appendChild(productCount);
 
     basketArea.appendChild(basket);
 }

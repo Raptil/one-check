@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.startup.onecheck.model.dto.CheckDto;
 import org.startup.onecheck.model.dto.ProductDto;
 import org.startup.onecheck.service.CheckService;
 import org.startup.onecheck.service.ProductService;
@@ -21,6 +20,6 @@ public class CheckController {
     @PostMapping("addProduct")
     public void addProductToCheck(@RequestBody ProductDto productDto){
         ProductDto productBase = productService.findById(productDto.getId());
-        checkService.addProduct(1L,productBase);
+        checkService.addProduct(productBase);
     }
 }

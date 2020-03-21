@@ -6,7 +6,7 @@ import org.startup.onecheck.model.dto.CheckDto;
 import org.startup.onecheck.model.dto.ProductDto;
 import org.startup.onecheck.model.entity.Check;
 import org.startup.onecheck.model.mapper.CheckMapper;
-import org.startup.onecheck.model.mapper.ProductMapper;
+import org.startup.onecheck.repository.BasketRepository;
 import org.startup.onecheck.repository.CheckRepository;
 
 import java.util.Optional;
@@ -19,7 +19,7 @@ public class CheckService {
 
     private CheckMapper checkMapper;
 
-    private ProductMapper productMapper;
+    private BasketRepository basketRepository;
 
     public CheckDto findById(Long id){
         Optional<Check> optionalCheck = checkRepository.findById(id);
@@ -27,10 +27,12 @@ public class CheckService {
     }
 
     public void save(CheckDto checkDto){
-        checkRepository.save(checkMapper.checkDtoToCheck(checkDto));
+        Check check = checkMapper.checkDtoToCheck(checkDto);
+        check.setBasket(basketRepository.findById(1L).orElse(null));
+        checkRepository.save(check);
     }
 
-    public void addProduct (Long checkId, ProductDto productDto){
+    public void addProduct(ProductDto productDto){
         CheckDto findCheck = findById(1L);
         if(findCheck != null){
             findCheck.getProducts().add(productDto);

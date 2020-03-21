@@ -1,0 +1,15 @@
+#basket-area ul {
+    list-style-type: none;
+    background-color: #FFF;
+    margin: 0;
+    overflow: auto;
+    padding: 0 20px 0 20px;
+    height: calc(100% - 150px);
+}
+
+#basket-area img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 70px;
+}
