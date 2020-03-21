@@ -99,15 +99,15 @@ function drawProduct(checkProductDto) {
     productCategory.appendChild(text);
     basket.appendChild(productCategory);
 
-    var productPrice = document.createElement('li');
-    var text = document.createTextNode((Math.round(product.price * 100) / 100).toFixed(2) + ' $');
-    productPrice.appendChild(text);
-    basket.appendChild(productPrice);
-
     var productCount = document.createElement('li');
-    var text = document.createTextNode('count ' + checkProductDto.count);
+    var text = document.createTextNode('Count ' + checkProductDto.count);
     productCount.appendChild(text);
     basket.appendChild(productCount);
+
+    var productPrice = document.createElement('li');
+    var text = document.createTextNode('Total ' + (Math.round(product.price * checkProductDto.count * 100) / 100).toFixed(2) + ' $');
+    productPrice.appendChild(text);
+    basket.appendChild(productPrice);
 
     basketArea.appendChild(basket);
 }
