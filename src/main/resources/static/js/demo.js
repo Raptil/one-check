@@ -18,9 +18,8 @@ window.onload = function () {
             return response.json();
         })
         .then(products => {
-            console.log(products);
             products.forEach(function (item, product) {
-                drawProduct(product);
+                drawProduct(item);
             });
         })
         .catch(() => console.log('Error messages'));
