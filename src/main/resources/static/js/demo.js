@@ -2,6 +2,7 @@
 var productArea = document.querySelector('#productArea');
 
 window.onload = function () {
+    alert('Отрисовка продукта');
     fetch("products/",
         {
             method: "GET",
@@ -26,9 +27,11 @@ window.onload = function () {
 };
 
 function drawProduct(product) {
+    alert('Отрисовка продукта');
     var productElement = document.createElement('li');
     var label = document.createElement("label");
     label.setAttribute("value", product.productName);
+    productElement.appendChild(label);
 
     productArea.appendChild(productElement)
 }
