@@ -1,5 +1,5 @@
 'use strict';
-let productArea = document.querySelector('#productArea');
+let productArea = document.querySelector('#product-area');
 
 window.onload = function () {
     fetch("products/",

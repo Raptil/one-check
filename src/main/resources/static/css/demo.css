@@ -1,0 +1,8 @@
+#product-area ul {
+    list-style-type: none;
+    background-color: #FFF;
+    margin: 0;
+    overflow: auto;
+    padding: 0 20px 0px 20px;
+    height: calc(100% - 150px);
+}
