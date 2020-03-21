@@ -43,6 +43,6 @@ public class Product {
     @JoinTable(name = "check_to_product",
             joinColumns = @JoinColumn(name = "id_product"),
             inverseJoinColumns = @JoinColumn(name = "id_check"))
-    private List<Product> products;
+    private List<Check> products;
 
 }
