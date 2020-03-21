@@ -20,6 +20,14 @@ CREATE TABLE IF NOT EXISTS public.company (
     CONSTRAINT "FK_id_company" FOREIGN KEY ("id_company")
         REFERENCES "company" ("id")
  );
+  CREATE TABLE IF NOT EXISTS public.basket (
+  id SERIAL PRIMARY KEY,
+  id_user INT NOT NULL,
+  active_flg VARCHAR NOT NULL,
+  total_price INT NOT NULL,
+   CONSTRAINT "FK_id_user" FOREIGN KEY ("id_user")
+      REFERENCES "user_dictionary" ("id")
+ );
 CREATE TABLE IF NOT EXISTS public.check_products (
  id SERIAL PRIMARY KEY,
  id_basket int,
@@ -38,12 +46,4 @@ CREATE TABLE IF NOT EXISTS public.check_to_product (
     REFERENCES "check_products" ("id"),
  CONSTRAINT "FK_id_product" FOREIGN KEY ("id_product")
     REFERENCES "product_item" ("id")
- );
- CREATE TABLE IF NOT EXISTS public.basket (
-  id SERIAL PRIMARY KEY,
-  id_user INT NOT NULL,
-  active_flg VARCHAR NOT NULL,
-  total_price INT NOT NULL,
-   CONSTRAINT "FK_id_user" FOREIGN KEY ("id_user")
-      REFERENCES "user_dictionary" ("id")
  );
