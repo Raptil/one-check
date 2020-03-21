@@ -4,7 +4,6 @@ package org.startup.onecheck.model.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.startup.onecheck.model.entity.Product;
 
 import java.util.List;
 
@@ -17,5 +16,5 @@ public class CompanyDto {
 
     private String companyName;
 
-    private List<Product> products;
+    private List<ProductDto> products;
 }
