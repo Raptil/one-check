@@ -30,8 +30,8 @@ function drawProduct(product) {
     alert('Отрисовка продукта');
     var productElement = document.createElement('li');
     var label = document.createElement("label");
-    label.setAttribute("value", product.productName);
+    var text = document.createTextNode(product.productName);
+    label.appendChild(text);
     productElement.appendChild(label);
-
     productArea.appendChild(productElement);
 }
