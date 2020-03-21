@@ -1,8 +1,7 @@
 'use strict';
-var productArea = document.querySelector('#productArea');
+let productArea = document.querySelector('#productArea');
 
 window.onload = function () {
-    alert('Отрисовка продукта');
     fetch("products/",
         {
             method: "GET",
@@ -19,6 +18,7 @@ window.onload = function () {
             return response.json();
         })
         .then(products => {
+            console.log(products);
             products.forEach(function (item, product) {
                 drawProduct(product);
             });
@@ -27,11 +27,12 @@ window.onload = function () {
 };
 
 function drawProduct(product) {
-    alert('Отрисовка продукта');
     var productElement = document.createElement('li');
     var label = document.createElement("label");
     var text = document.createTextNode(product.productName);
     label.appendChild(text);
     productElement.appendChild(label);
     productArea.appendChild(productElement);
+
+    console.log(product);
 }
