@@ -36,9 +36,8 @@ public class Check {
     @JoinColumn(name = "id_basket", referencedColumnName = "id")
     private Basket basket;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "check_to_user",
-            joinColumns = @JoinColumn(name = "id_check"),
-            inverseJoinColumns = @JoinColumn(name = "id_user"))
-    private List<User> users;
+    @ManyToOne
+    @JoinColumn(name = "id_user", referencedColumnName = "id")
+    private User user;
+
 }

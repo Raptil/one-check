@@ -26,9 +26,6 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "check_to_user",
-            joinColumns = @JoinColumn(name = "id_user"),
-            inverseJoinColumns = @JoinColumn(name = "id_check"))
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Check> checks;
 }

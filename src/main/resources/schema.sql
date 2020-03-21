@@ -24,20 +24,14 @@ CREATE TABLE IF NOT EXISTS public.company (
 CREATE TABLE IF NOT EXISTS public.check_products (
  id SERIAL PRIMARY KEY,
  id_basket int,
+ id_user int not null,
  total_price int NOT NULL,
  description VARCHAR NOT NULL,
  CONSTRAINT "FK_id_basket" FOREIGN KEY ("id_basket")
-    REFERENCES "basket" FOREIGN KEY("id")
+    REFERENCES "basket" FOREIGN KEY("id"),
+  CONSTRAINT "FK_id_user" FOREIGN KEY ("id_user")
+     REFERENCES "user_dictionary" ("id")
 );
-CREATE TABLE IF NOT EXISTS public.check_to_user (
- id_check int not null,
- id_user int not null,
- type VARCHAR NOT  NULL,
- CONSTRAINT "FK_id_check" FOREIGN KEY ("id_check")
-    REFERENCES "check_products" ("id"),
- CONSTRAINT "FK_id_user" FOREIGN KEY ("id_user")
-    REFERENCES "user_dictionary" ("id")
- );
 CREATE TABLE IF NOT EXISTS public.check_to_product (
  id_check int not null,
  id_product int not null,
