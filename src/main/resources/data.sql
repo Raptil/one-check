@@ -8,5 +8,12 @@ INSERT INTO product_item (id_company, product_name, category, price, description
 VALUES (1, 'Avocado', 'fresh fruits', 0.79,
         'great spread for toast',
         'https://production-endpoint.azureedge.net/images/6KS3ICHJBSQJ0C3O6KO30/ed4cc4b8-f2d3-48fa-adab-1956b6033e2d/58923_500x500.jpg');
-
+-- TODO: add more product
 COMMIT;
+
+INSERT INTO user_dictionary (user_name, first_name) values ('User', 'User');
+INSERT INTO user_dictionary (user_name, first_name) values ('KrzysztofDev', 'Krzysztof');
+INSERT INTO user_dictionary (user_name, first_name) values ('DanDan', 'Dan');
+COMMIT;
+
+
