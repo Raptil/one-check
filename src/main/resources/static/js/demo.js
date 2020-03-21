@@ -70,11 +70,21 @@ function drawProduct(product) {
                 return Promise.reject();
             }
         })
-        .then (() => console.log('indusi'))
+        .then (() => {
+            console.log('indusi');
+            launch_toast();
+        })
         .catch(() => console.log('Error check'));
-    }
+    };
     productBut.appendChild(button);
     productElement.appendChild(productBut);
 
     productArea.appendChild(productElement);
+}
+
+function launch_toast() {
+
+    var x = document.getElementById("toast");
+    x.className = "show";
+    setTimeout(function() { x.className = x.className.replace("show", ""); }, 2000);
 }

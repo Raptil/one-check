@@ -48,7 +48,7 @@ function drawProduct(checkProductDto) {
     basket.appendChild(productCategory);
 
     var productPrice = document.createElement('li');
-    var text = document.createTextNode(product.price + ' $');
+    var text = document.createTextNode((Math.round(product.price * 100) / 100).toFixed(2) + ' $');
     productPrice.appendChild(text);
     basket.appendChild(productPrice);
 
