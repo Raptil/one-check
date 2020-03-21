@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class    Basket {
+public class Basket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class    Basket {
     @Column(name = "active_flg")
     private String activeFlg;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "basket")
+    @OneToMany(mappedBy = "basket")
     private List<Check> checks;
 
     @ManyToOne

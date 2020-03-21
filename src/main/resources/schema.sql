@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS public.company (
   CREATE TABLE IF NOT EXISTS public.basket (
   id SERIAL PRIMARY KEY,
   id_user INT NOT NULL,
-  active_flg VARCHAR NOT NULL,
-  total_price INT NOT NULL,
+  active_flg VARCHAR,
+  total_price INT,
    CONSTRAINT "FK_id_user" FOREIGN KEY ("id_user")
       REFERENCES "user_dictionary" ("id")
  );
