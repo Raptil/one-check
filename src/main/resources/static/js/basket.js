@@ -28,33 +28,38 @@ window.onload = function () {
         })
         .catch(() => console.log('Error messages'));
 
-        fetch("checks/",
-                {
-                    method: "GET",
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.status !== 200) {
-
-                        return Promise.reject();
-                    }
-                    return response.json();
-                })
-                .then(checkDto => {
-                    checkDto.forEach(function (item, product) {
-                        console.log(item);
-                        drawCheck(item);
-                    });
-                })
-                .catch(() => console.log('Error messages'));
-                getChecks();
+        getChecks()
+        getBasketChecks();
 
 };
-
 function getChecks(){
+           fetch("checks/",
+                    {
+                        method: "GET",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.status !== 200) {
+
+                            return Promise.reject();
+                        }
+                        return response.json();
+                    })
+                    .then(checkDto => {
+                         while (checkArea.firstChild) {
+                            checkArea.removeChild(checkArea.firstChild);
+                         }
+                        checkDto.forEach(function (item, product) {
+                            console.log(item);
+                            drawCheck(item);
+                        });
+                    })
+                    .catch(() => console.log('Error messages'));
+}
+function getBasketChecks(){
     fetch("checkBasket/",
                             {
                                 method: "GET",
@@ -154,6 +159,7 @@ function drawCheck(checkDto) {
                     .then (() => {
                         console.log('indusi');
                         getChecks();
+                        getBasketChecks();
                     })
                     .catch(() => console.log('Error check'));
                 }
@@ -189,22 +195,23 @@ function drawProduct(checkProductDto) {
     productCount.appendChild(text);
     basket.appendChild(productCount);
 
-    if(product.id == 1){
-    var li = document.createElement('li');
-                 var button = document.createElement('button');
-                                                                    button.setAttribute('type', 'button');
-                                                                    button.setAttribute('class', 'btn btn-success');
-
-                                                                    var text = document.createTextNode('Publish');
-                                                                    button.appendChild(text);
-                                                             li.appendChild(button);
-                                                             basket.appendChild(li);
-    }
 
     var productPrice = document.createElement('li');
     var text = document.createTextNode('Total ' + (Math.round(product.price * checkProductDto.count * 100) / 100).toFixed(2) + ' $');
     productPrice.appendChild(text);
     basket.appendChild(productPrice);
+
+      if(product.id == 1){
+          var li = document.createElement('li');
+          var button = document.createElement('button');
+          button.setAttribute('type', 'button');
+          button.setAttribute('class', 'btn btn-success');
+          var text = document.createTextNode('Publish');
+          button.appendChild(text);
+          li.appendChild(button);
+          basket.appendChild(li);
+        }
+
 
     basketArea.appendChild(basket);
 }
