@@ -90,6 +90,31 @@ function getBasketChecks(){
                                                     var text = document.createTextNode('Pay');
                                                     button.appendChild(text);
                                              checkBasketArea.appendChild(button);
+                                              var buttonPdf = document.createElement('button');
+                                               buttonPdf.setAttribute('type', 'button');
+                                               buttonPdf.setAttribute('class', 'btn btn-info');
+                                                var textPdf = document.createTextNode('Pdf');
+                                               buttonPdf.appendChild(textPdf);
+                                               buttonPdf.onclick = function(){
+                                                                   fetch("api/pdf/basket/",
+                                                                   {
+                                                                       method:"GET",
+                                                                       headers: {
+                                                                           'Accept': 'application/json',
+                                                                           'Content-type': 'application/json'
+                                                                       }
+                                                                   })
+                                                                   .then (response => {
+                                                                       if (response.status!=200){
+                                                                           return Promise.reject();
+                                                                       }
+                                                                   })
+                                                                   .then (() => {
+                                                                       console.log('pdf');
+                                                                   })
+                                                                   .catch(() => console.log('pdf'));
+                                                               }
+                                               checkBasketArea.appendChild(buttonPdf);
                             })
                             .catch(() => console.log('Error messages'));
 }
