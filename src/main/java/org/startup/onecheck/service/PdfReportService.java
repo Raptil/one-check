@@ -84,7 +84,7 @@ public class PdfReportService {
 
                     double productTotal = product.getPrice() * count;
                     total += productTotal;
-                    cell = new PdfPCell(new Phrase(String.format(Locale.ENGLISH, "Total: %(.2f $", productTotal)));
+                    cell = new PdfPCell(new Phrase(String.format(Locale.ENGLISH, "%(.2f $", productTotal)));
                     cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                     cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
                     cell.setPaddingRight(5);
