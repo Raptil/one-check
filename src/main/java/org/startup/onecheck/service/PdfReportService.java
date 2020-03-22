@@ -14,7 +14,6 @@ import org.startup.onecheck.model.dto.UserDto;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -27,7 +26,7 @@ public class PdfReportService {
 
     private BasketService basketService;
 
-    public ByteArrayInputStream basketReport() throws IOException {
+    public ByteArrayInputStream basketReport() {
         List<CheckDto> currentChecks = basketService.findCurrentChecks();
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         Document document = new Document();
