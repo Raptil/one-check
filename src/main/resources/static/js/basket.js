@@ -28,7 +28,7 @@ window.onload = function () {
         })
         .catch(() => console.log('Error messages'));
 
-        getChecks()
+        getChecks();
         getBasketChecks();
 
 };
@@ -103,7 +103,7 @@ function drawBasketCheck (checkDto) {
             checkElement.appendChild(checkPrice);
 
             var userName = document.createElement('li');
-            var text = document.createTextNode(checkDto.user.userName);
+            var text = document.createTextNode(checkDto.user.firstName);
             userName.appendChild(text);
             checkElement.appendChild(userName);
 
@@ -162,7 +162,7 @@ function drawCheck(checkDto) {
                         getBasketChecks();
                     })
                     .catch(() => console.log('Error check'));
-                }
+                };
         productBut.appendChild(button);
         checkElement.appendChild(productBut);
 var div = document.createElement('div');
