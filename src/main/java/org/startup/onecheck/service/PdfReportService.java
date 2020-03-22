@@ -64,11 +64,10 @@ public class PdfReportService {
                 cells = new PdfPCell(new Phrase("TotalPrice", headFont));
                 cells.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(cells);
+                PdfPCell cell;
 
                 double total = 0d;
                 for (CheckProductDto checkProductDto : checkProductDtos) {
-
-                    PdfPCell cell;
 
                     ProductDto product = checkProductDto.getProduct();
                     cell = new PdfPCell(new Phrase(product.getProductName()));
@@ -106,18 +105,31 @@ public class PdfReportService {
                 userNameReceipt.setAlignment(Element.ALIGN_CENTER);
 
 
-                Paragraph totalCoast = new Paragraph();
-                totalCoast.add(String.format(Locale.ENGLISH, "Total: %(.2f $", total));
-                totalCoast.setAlignment(Element.ALIGN_RIGHT);
+                cell = new PdfPCell(new Phrase());
+                cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cell.setBorder(Rectangle.NO_BORDER);
+                table.addCell(cell);
+
+                cell = new PdfPCell(new Phrase());
+                cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                cell.setPaddingRight(5);
+                cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                cell.setBorder(Rectangle.NO_BORDER);
+                table.addCell(cell);
+
+                cell = new PdfPCell(new Phrase(String.format(Locale.ENGLISH, "Total: %(.2f $", total)));
+                cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+                cell.setPaddingRight(5);
+                table.addCell(cell);
 
 
                 document.add(userNameReceipt);
                 document.add(address);
                 document.add(Chunk.NEWLINE);
                 document.add(table);
-                document.add(totalCoast);
                 document.add(Chunk.NEWLINE);
-
 
             } catch (DocumentException ex) {
 
