@@ -52,4 +52,22 @@ public class BasketService {
         return checkDtos;
     }
 
+    public List<CheckDto> getChecksByBasket() {
+        List<CheckDto> checkDtos = checkMapper.checkToCheckDtoList(checkRepository.findAll()
+                .stream()
+                .filter(check ->check.getBasket()!=null && check.getBasket().getId() == 1L)
+                .collect(Collectors.toList()));
+        return checkDtos;
+    }
+
+    public void addCheck(CheckDto checkDto){
+        Optional<Check> optionalCheck = checkRepository.findById(checkDto.getId());
+        Check check = (Check) optionalCheck.orElse(null);
+        Optional<Basket> basketOptional = basketRepository.findById(1L);
+        Basket basket = (Basket) basketOptional.orElse(null);
+        check.setBasket(basket);
+        if (!basket.getChecks().contains(check))  basket.getChecks().add(check);
+        basketRepository.saveAndFlush(basket);
+    }
+
 }
