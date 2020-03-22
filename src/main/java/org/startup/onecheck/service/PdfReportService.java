@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.startup.onecheck.model.dto.CheckDto;
 import org.startup.onecheck.model.dto.CheckProductDto;
 import org.startup.onecheck.model.dto.ProductDto;
+import org.startup.onecheck.model.dto.UserDto;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -92,9 +93,15 @@ public class PdfReportService {
                     table.addCell(cell);
                 }
 
+                UserDto user = check.getUser();
                 String receiptTitle = checkId == 1L ? "My"
-                        : check.getUser().getFirstName();
-                receiptTitle += " purchase receipt" + "\n";
+                        : user.getFirstName();
+                receiptTitle += " purchase receipt";
+                Paragraph address = new Paragraph();
+                if (checkId != 1L) {
+                    address.add("Address: " + user.getAddress());
+                    address.setAlignment(Element.ALIGN_CENTER);
+                }
                 Paragraph userNameReceipt = new Paragraph();
                 userNameReceipt.add(receiptTitle);
                 userNameReceipt.setAlignment(Element.ALIGN_CENTER);
@@ -106,6 +113,7 @@ public class PdfReportService {
 
 
                 document.add(userNameReceipt);
+                document.add(address);
                 document.add(Chunk.NEWLINE);
                 document.add(table);
                 document.add(totalCoast);
