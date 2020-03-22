@@ -36,7 +36,7 @@ public class BasketService {
         return map(Objects.requireNonNull(productDtos.orElse(null)));
     }
 
-    private List<CheckProductDto> map(List<ProductDto> productDtos) {
+    public List<CheckProductDto> map(List<ProductDto> productDtos) {
         Map<ProductDto, Long> counts =
                 productDtos.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
         List<CheckProductDto> checkProductDtos = new ArrayList<>();
@@ -70,4 +70,10 @@ public class BasketService {
         basketRepository.saveAndFlush(basket);
     }
 
+    public List<CheckDto> findCurrentChecks() {
+        Optional<Basket> basket = basketRepository.findById(1L);
+        Optional<List<CheckDto>> checkDtos = basket.map(Basket::getChecks)
+                .map(checks -> checkMapper.checkToCheckDtoList(checks));
+        return checkDtos.orElse(null);
+    }
 }
