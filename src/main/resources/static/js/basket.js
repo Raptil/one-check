@@ -92,7 +92,7 @@ function getBasketChecks() {
             var text = document.createTextNode('Pay');
             button.appendChild(text);
             checkBasketArea.appendChild(button);
-            var buttonPdf = document.createElement('button');
+            var buttonPdf = document.createElement('a');
             buttonPdf.setAttribute('type', 'button');
             buttonPdf.setAttribute('class', 'btn btn-info');
             buttonPdf.setAttribute('href', '/pdf/basket/');
