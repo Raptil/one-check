@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.startup.onecheck.service.PdfReportService;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 
 @RestController
 @AllArgsConstructor
@@ -38,7 +37,7 @@ public class ExportPdfController {
 
     @RequestMapping(value = "/pdf/basket", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<InputStreamResource> basketReport() throws IOException {
+    public ResponseEntity<InputStreamResource> basketReport() {
 
         ByteArrayInputStream bis = pdfReportService.basketReport();
 
